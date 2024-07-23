@@ -2,7 +2,7 @@ export const routes = [
   {
     path: "/user/",
     component: () =>
-      import("@controleonline/quasar-layout-ui/src/layouts/AdminLayout.vue"),
+      import("@controleonline/ui-layout/src/layouts/AdminLayout.vue"),
     children: [
       {
         name: "UserProfile",
@@ -14,7 +14,7 @@ export const routes = [
   // {
   //   path: "/oauth/",
   //   component: () =>
-  //     import("@controleonline/quasar-layout-ui/src/layouts/AdminLayout.vue"),
+  //     import("@controleonline/ui-layout/src/layouts/AdminLayout.vue"),
   //   children: [
   //     {
   //       path: "/mercadolivre/return",
