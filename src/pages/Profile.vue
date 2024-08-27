@@ -1,5 +1,5 @@
 <template>
-  <People :context="context" :peopleId="this.user.people" v-if="context" />
+  <People :context="context" :peopleId="this.user.id" v-if="context" />
 </template>
 
 <script>
@@ -22,6 +22,8 @@ export default {
     };
   },
   created() {
+
+    console.log(this.user);
 
   },
 };
