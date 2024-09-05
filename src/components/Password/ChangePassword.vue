@@ -107,7 +107,6 @@ export default {
         people: this.row.people.id,
         id: this.row.id,
       }).then((data) => {
-        console.log(data);
         this.$q.notify({
           color: "positive",
           message: this.$tt(
