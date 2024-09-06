@@ -105,6 +105,7 @@ export default {
         password: this.newPassword,
         people: this.componentProps.people,
       }).then((data) => {
+        this.$emit("saved", data);
         this.$q.notify({
           color: "positive",
           message: this.$tt("users", "message", "User created successfully"),
