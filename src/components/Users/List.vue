@@ -3,7 +3,7 @@
     <q-card class="q-mb-md q-pa-none">
       <q-card-section class="q-pa-none">
         <div class="q-pa-none">
-          <DefaultTable :configs="configsUsers" v-if="loaded && configsUsers" />
+          <DefaultTable :configs="configsUsers" v-if="configsUsers && loaded" />
         </div>
       </q-card-section>
     </q-card>
@@ -11,16 +11,22 @@
 </template>
 
 <script>
-import ChangePassword from "../Password/ChangePassword";
+import ChangePassword from "./ChangePassword";
+import CreateUser from "./CreateUser";
 export default {
   components: {
     ChangePassword,
+    CreateUser,
   },
   props: {
-    loaded: {
-      type: Boolean,
+    people: {
       required: true,
     },
+  },
+  data() {
+    return {
+      loaded: false,
+    };
   },
   computed: {
     configsUsers() {
@@ -28,14 +34,20 @@ export default {
         externalFilters: false,
         filters: false,
         controls: false,
-        totalItems: 50,
         "full-height": false,
         store: "users",
-        add: true,
+        add: false,
+        editable: false,
         delete: true,
         selection: false,
         search: false,
         components: {
+          headerActions: {
+            component: CreateUser,
+            props: {
+              people: this.people,
+            },
+          },
           tableActions: {
             component: ChangePassword,
           },
@@ -50,6 +62,10 @@ export default {
         },
       };
     },
+  },
+  created() {
+    this.$store.commit("users/SET_FILTERS", { people: this.people });
+    this.loaded = true;
   },
 };
 </script>
