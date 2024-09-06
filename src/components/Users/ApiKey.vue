@@ -126,7 +126,9 @@ export default {
           color: "positive",
           message: this.$tt("users", "message", "Api Key changed successfully"),
         });
+        this.user.apiKey = data.apiKey;
         this.openModal = false;
+        this.showConfirmation = false;
       });
     },
   },
