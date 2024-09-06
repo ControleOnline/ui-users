@@ -39,7 +39,7 @@
           />
           <q-input
             type="password"
-            v-model="newPassword"
+            v-model="user.password"
             :label="$tt('users', 'label', 'NewPassword')"
             :rules="[(val) => !!val || 'New Password is required']"
             filled
@@ -47,11 +47,11 @@
           />
           <q-input
             type="password"
-            v-model="confirmPassword"
+            v-model="user.confirmPassword"
             :label="$tt('users', 'label', 'ConfirmNewPassword')"
             :rules="[
               (val) =>
-                val === newPassword ||
+                val === user.password ||
                 this.$tt('users', 'message', 'Passwords must match'),
             ]"
             filled
@@ -83,8 +83,11 @@ export default {
   data() {
     return {
       openModal: false,
-      newPassword: "",
-      confirmPassword: "",
+      user: {
+        people:this.row.people.id,
+        id:this.row.id
+      },
+
     };
   },
   props: {
@@ -95,18 +98,14 @@ export default {
       changePassword: "users/changePassword",
     }),
     handleSubmit() {
-      if (this.newPassword !== this.confirmPassword) {
+      if (this.user.password !== this.user.confirmPassword) {
         this.$q.notify({
           color: "negative",
           message: this.$tt("users", "message", "Passwords do not match"),
         });
         return;
       }
-      this.changePassword({
-        password: this.newPassword,
-        people: this.row.people.id,
-        id: this.row.id,
-      }).then((data) => {
+      this.changePassword(this.user).then((data) => {
         this.$q.notify({
           color: "positive",
           message: this.$tt(

@@ -1,22 +1,16 @@
 <template>
-  <div class="q-pt-lg">
-    <q-card class="q-mb-md q-pa-none">
-      <q-card-section class="q-pa-none">
-        <div class="q-pa-none">
-          <DefaultTable :configs="configsUsers" v-if="configsUsers && loaded" />
-        </div>
-      </q-card-section>
-    </q-card>
-  </div>
+  <DefaultTable :configs="configsUsers" v-if="configsUsers && loaded" />
 </template>
 
 <script>
 import ChangePassword from "./ChangePassword";
 import CreateUser from "./CreateUser";
+import ApiKey from "./ApiKey";
 export default {
   components: {
     ChangePassword,
     CreateUser,
+    ApiKey
   },
   props: {
     people: {
@@ -42,6 +36,14 @@ export default {
         selection: false,
         search: false,
         components: {
+          customColumns: {
+            apiKey: {
+              component: ApiKey,
+              props: {
+                people: this.people,
+              },
+            },
+          },
           headerActions: {
             component: CreateUser,
             props: {
