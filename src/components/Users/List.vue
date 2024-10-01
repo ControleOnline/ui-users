@@ -44,12 +44,12 @@ export default {
               },
             },
           },
-          headerActions: {
+          headerActions: [{
             component: CreateUser,
             props: {
               people: this.people,
             },
-          },
+          }],
           tableActions: {
             component: ChangePassword,
           },
