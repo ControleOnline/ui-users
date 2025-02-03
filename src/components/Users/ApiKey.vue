@@ -103,10 +103,6 @@ export default {
   },
   props: {
     row: {},
-    index: {
-      type: Number,
-      required: false,
-    },
   },
   created() {},
   methods: {
@@ -121,7 +117,7 @@ export default {
     },
     handleSubmit() {
       this.changeApiKey({ id: this.row.id }).then((data) => {
-        this.$emit("saved", data, this.index);
+        this.$emit("saved", data);
         this.$q.notify({
           color: "positive",
           message: this.$tt("users", "message", "Api Key changed successfully"),
