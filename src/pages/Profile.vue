@@ -1,5 +1,5 @@
 <template>
-  <People :context="context" :peopleId="this.user.id" v-if="context" />
+  <People :context="context" :peopleId="this.$auth.user.id" v-if="context" />
 </template>
 
 <script>
@@ -10,20 +10,12 @@ export default {
     People,
   },
 
-  computed: {
-    user() {
-      let user = this.$store.getters["auth/user"] || {};
-      return user;
-    },
-  },
+  computed: {},
   data() {
     return {
       context: "profile",
     };
   },
-  created() {
-
-
-  },
+  created() {},
 };
 </script>
