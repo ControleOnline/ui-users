@@ -10,6 +10,7 @@ export default {
   state: {
  item:{},
 items:[],
+filters:{},
     resourceEndpoint: "users",
     isLoading: false,
     error: "",
