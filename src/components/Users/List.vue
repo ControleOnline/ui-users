@@ -3,6 +3,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 import ChangePassword from "./ChangePassword";
 import CreateUser from "./CreateUser";
 import ApiKey from "./ApiKey";
