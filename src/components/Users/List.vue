@@ -73,7 +73,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      setFilters: "users/SET_FILTERS",
+      setFilters: "users/setFilters",
     }),
   },
 };
