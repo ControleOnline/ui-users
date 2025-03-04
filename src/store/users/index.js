@@ -8,6 +8,8 @@ import * as customActions from "./customActions";
 export default {
   namespaced: true,
   state: {
+ item:{},
+items:[],
     resourceEndpoint: "users",
     isLoading: false,
     error: "",
