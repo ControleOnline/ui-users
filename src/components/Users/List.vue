@@ -10,7 +10,7 @@ export default {
   components: {
     ChangePassword,
     CreateUser,
-    ApiKey
+    ApiKey,
   },
   props: {
     people: {
@@ -44,12 +44,14 @@ export default {
               },
             },
           },
-          headerActions: [{
-            component: CreateUser,
-            props: {
-              people: this.people,
+          headerActions: [
+            {
+              component: CreateUser,
+              props: {
+                people: this.people,
+              },
             },
-          }],
+          ],
           tableActions: {
             component: ChangePassword,
           },
@@ -66,8 +68,13 @@ export default {
     },
   },
   created() {
-    this.$store.commit("users/SET_FILTERS", { people: this.people });
+    this.setFilters({ people: this.people });
     this.loaded = true;
+  },
+  methods: {
+    ...mapActions({
+      setFilters: "users/SET_FILTERS",
+    }),
   },
 };
 </script>
