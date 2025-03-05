@@ -4,12 +4,11 @@ import mutations from "@controleonline/ui-default/src/store/default/mutations";
 import Formatter from "@controleonline/ui-common/src/utils/formatter.js";
 import * as customActions from "./customActions";
 
-
 export default {
   namespaced: true,
   state: {
- item:{},
-items:[],
+    item: {},
+    items: [],
     resourceEndpoint: "users",
     isLoading: false,
     error: "",
@@ -38,7 +37,7 @@ items:[],
       },
     ],
   },
-  actions: {...actions,...customActions},
+  actions: { ...actions, ...customActions },
   getters,
   mutations,
 };
