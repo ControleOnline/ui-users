@@ -1,4 +1,4 @@
-const {jest} = require('@jest/globals')
+/* global jest */
 
 const {beforeEach, describe, expect, it} = global
 
