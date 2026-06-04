@@ -74,9 +74,6 @@ export const updateMyPreferences = ({ commit }, params) => {
     .then((response) => {
       return response;
     })
-    .catch((e) => {
-      throw e;
-    })
     .finally(() => {
       commit(types.SET_ISLOADING, false);
     });
