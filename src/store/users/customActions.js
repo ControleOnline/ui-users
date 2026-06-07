@@ -67,7 +67,7 @@ export const updateMyPreferences = ({ commit }, params) => {
   commit(types.SET_ISLOADING);
 
   return api
-    .fetch("/users/preferences", {
+    .fetch("users/preferences", {
       method: "PUT",
       body: params,
     })

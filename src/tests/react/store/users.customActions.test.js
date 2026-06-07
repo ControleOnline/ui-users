@@ -29,7 +29,7 @@ describe('users customActions', () => {
     )
 
     expect(result).toEqual(response)
-    expect(api.fetch).toHaveBeenCalledWith('/users/preferences', {
+    expect(api.fetch).toHaveBeenCalledWith('users/preferences', {
       method: 'PUT',
       body: {timezone: '/timezones/12'},
     })
