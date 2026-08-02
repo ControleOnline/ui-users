@@ -1,11 +1,5 @@
-## Escopo
-- Modulo de usuarios.
-- Reune store e telas antigas de perfil e manutencao de usuarios.
+# ui-users
 
-## Estado
-- Este modulo hoje nao tem `src/react`; a implementacao disponivel fica em `src/vue`.
-- Em novos prompts, priorizar modulos React equivalentes quando existirem.
-- So mexer em `src/vue` se o pedido for explicitamente sobre este fluxo ou se nao houver alternativa atual.
+## Qualidade de código
 
-## Quando usar
-- Prompts sobre users, perfil de usuario antigo e manutencao legada de usuarios.
+- A barra comum de modularizacao, testes, smoke tests e limite de tamanho de componentes vive em `https://github.com/ControleOnline/agents-mcp/blob/master/skills/shared/code-quality.md`.
