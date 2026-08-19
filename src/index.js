@@ -1,4 +1,2 @@
-// Neutral entrypoint kept after Vue removal.
-const moduleEntry = {};
-
-export default moduleEntry;
+export {default as users} from './store/users';
+export {default as UsersPage} from './react/pages/UsersPage';
