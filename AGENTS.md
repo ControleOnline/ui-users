@@ -4,3 +4,9 @@
 - Regras transversais de qualidade, modularizacao e limites de componente vivem em `https://github.com/ControleOnline/agents-mcp/blob/master/skills/shared/code-quality.md`.
 - Quando houver detalhe especifico de implementacao, prefira comentar no codigo em ingles perto da regra.
 - Este arquivo deve ficar curto e servir apenas como ponte para as fontes oficiais.
+
+## Escopo
+
+- Store `users` (CRUD + changePassword / changeApiKey / updateMyPreferences).
+- Tela `UsersPage`: lista geral de usuários da empresa (Manager). Em `app_type=ADMIN`, título indica todas as empresas.
+- Gestão pontual (criar/senha/API key no contexto de uma pessoa) continua na aba `UsersTab` de `ui-customers`.

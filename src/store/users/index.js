@@ -1,7 +1,6 @@
-﻿import * as actions from "@controleonline/ui-default/src/store/default/actions";
+import * as actions from "@controleonline/ui-default/src/store/default/actions";
 import * as getters from "@controleonline/ui-default/src/store/default/getters";
 import mutations from "@controleonline/ui-default/src/store/default/mutations";
-import Formatter from "@controleonline/ui-common/src/utils/formatter.js";
 import * as customActions from "./customActions";
 
 export default {
@@ -20,20 +19,38 @@ export default {
       {
         isIdentity: true,
         sortable: true,
+        editable: false,
         name: "username",
         label: "username",
         align: "left",
-        format(value, column, row) {
-          return value;
+        format(value) {
+          return value || "";
         },
       },
       {
-        sortable: true,
+        sortable: false,
+        editable: false,
+        name: "people",
+        label: "people",
+        align: "left",
+        format(value, _column, row) {
+          if (value && typeof value === "object") {
+            return value.name || value.alias || value.id || "";
+          }
+          return value || row?.people_id || "";
+        },
+      },
+      {
+        sortable: false,
+        editable: false,
         name: "apiKey",
         label: "apiKey",
         align: "left",
-        format(value, column, row) {
-          return value;
+        format(value) {
+          const key = String(value || "").trim();
+          if (!key) return "";
+          if (key.length <= 12) return key;
+          return `${key.slice(0, 6)}…${key.slice(-4)}`;
         },
       },
     ],
