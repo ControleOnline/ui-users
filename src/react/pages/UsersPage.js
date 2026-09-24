@@ -26,10 +26,11 @@ export default function UsersPage() {
   const themeStore = useStore('theme');
   const authStore = useStore('auth');
 
-  const {mainCompany} = peopleStore.getters || {};
+  const {currentCompany, defaultCompany} = peopleStore.getters || {};
   const {user} = authStore.getters || {};
   const {colors: themeColors} = themeStore.getters || {};
 
+  const mainCompany = defaultCompany || currentCompany || null;
   const canManage = canManageCompanyUsers({
     appType: app_type_base,
     user,
